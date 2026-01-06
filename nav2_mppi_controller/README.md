@@ -204,28 +204,28 @@ controller_server:
         time_step: 3
       AckermannConstraints:
         min_turning_r: 0.2
-      critics: ["ConstraintCritic", "CostCritic", "GoalCritic", "GoalAngleCritic", "PathAlignCritic", "PathFollowCritic", "PathAngleCritic", "PreferForwardCritic"]
-      ConstraintCritic:
+      critics: ["constraint_critic", "cost_critic", "goal_critic", "goal_angle_critic", "path_align_critic", "path_follow_critic", "path_angle_critic", "prefer_forward_critic"]
+      constraint_critic:
         enabled: true
         cost_power: 1
         cost_weight: 4.0
-      GoalCritic:
+      goal_critic:
         enabled: true
         cost_power: 1
         cost_weight: 5.0
         threshold_to_consider: 1.4
-      GoalAngleCritic:
+      goal_angle_critic:
         enabled: true
         cost_power: 1
         cost_weight: 3.0
         threshold_to_consider: 0.5
-      PreferForwardCritic:
+      prefer_forward_critic:
         enabled: true
         cost_power: 1
         cost_weight: 5.0
         threshold_to_consider: 0.5
       # Option to replace Cost and use Obstacles instead
-      # ObstaclesCritic:
+      # obstacles_critic:
       #   enabled: true
       #   cost_power: 1
       #   repulsion_weight: 1.5
@@ -234,7 +234,7 @@ controller_server:
       #   collision_cost: 10000.0
       #   collision_margin_distance: 0.1
       #   near_goal_distance: 0.5
-      CostCritic:
+      cost_critic:
         enabled: true
         cost_power: 1
         cost_weight: 3.81
@@ -243,7 +243,7 @@ controller_server:
         collision_cost: 1000000.0
         near_goal_distance: 1.0
         trajectory_point_step: 2
-      PathAlignCritic:
+      path_align_critic:
         enabled: true
         cost_power: 1
         cost_weight: 14.0
@@ -252,13 +252,13 @@ controller_server:
         threshold_to_consider: 0.5
         offset_from_furthest: 20
         use_path_orientations: false
-      PathFollowCritic:
+      path_follow_critic:
         enabled: true
         cost_power: 1
         cost_weight: 5.0
         offset_from_furthest: 5
         threshold_to_consider: 1.4
-      PathAngleCritic:
+      path_angle_critic:
         enabled: true
         cost_power: 1
         cost_weight: 2.0
@@ -266,12 +266,12 @@ controller_server:
         threshold_to_consider: 0.5
         max_angle_to_furthest: 1.0
         forward_preference: true
-      # VelocityDeadbandCritic:
+      # velocity_deadband_critic:
       #   enabled: true
       #   cost_power: 1
       #   cost_weight: 35.0
       #   deadband_velocities: [0.05, 0.05, 0.05]
-      # TwirlingCritic:
+      # twirling_critic:
       #   enabled: true
       #   twirling_cost_power: 1
       #   twirling_cost_weight: 10.0
@@ -324,7 +324,7 @@ The `publish_critics_stats` parameter enables publishing of statistics about eac
 The published `nav2_msgs::msg::CriticsStats` message contains the following fields:
 
 - **stamp**: Timestamp of when the statistics were computed
-- **critics**: Array of critic names that were evaluated (e.g., "ConstraintCritic", "GoalCritic", "ObstaclesCritic")
+- **critics**: Array of critic names that were evaluated (e.g., "constraint_critic", "goal_critic", "obstacles_critic")
 - **changed**: Boolean array indicating whether each critic modified the trajectory costs. `true` means the critic added non-zero costs, `false` means it had no effect
 - **costs_sum**: Array of the total cost contribution from each critic. This represents the sum of all costs added by that specific critic across all trajectory candidates
 

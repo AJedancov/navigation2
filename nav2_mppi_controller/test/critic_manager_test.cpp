@@ -132,7 +132,7 @@ TEST(CriticManagerTests, CriticLoadingTest)
   auto node = std::make_shared<nav2::LifecycleNode>("my_node");
   node->declare_parameter(
     "critic_manager.critics",
-    rclcpp::ParameterValue(std::vector<std::string>{"ConstraintCritic", "PreferForwardCritic"}));
+    rclcpp::ParameterValue(std::vector<std::string>{"constraint_critic", "prefer_forward_critic"}));
   auto costmap_ros = std::make_shared<nav2_costmap_2d::Costmap2DROS>(
     "dummy_costmap", "", true);
   std::string name = "test";

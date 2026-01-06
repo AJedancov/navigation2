@@ -139,24 +139,24 @@ controller_server:
       stateful: True
       critics:
         [
-          "RotateToGoal",
-          "Oscillation",
-          "BaseObstacle",
-          "GoalAlign",
-          "PathAlign",
-          "PathDist",
-          "GoalDist",
+          "rotate_to_goal",
+          "oscillation",
+          "base_obstacle",
+          "goal_align",
+          "path_align",
+          "path_dist",
+          "goal_dist",
         ]
-      BaseObstacle.scale: 0.02
-      PathAlign.scale: 32.0
-      PathAlign.forward_point_distance: 0.1
-      GoalAlign.scale: 24.0
-      GoalAlign.forward_point_distance: 0.1
-      PathDist.scale: 32.0
-      GoalDist.scale: 24.0
-      RotateToGoal.scale: 32.0
-      RotateToGoal.slowing_factor: 5.0
-      RotateToGoal.lookahead_time: -1.0
+      base_obstacle.scale: 0.02
+      path_align.scale: 32.0
+      path_align.forward_point_distance: 0.1
+      goal_align.scale: 24.0
+      goal_align.forward_point_distance: 0.1
+      path_dist.scale: 32.0
+      goal_dist.scale: 24.0
+      rotate_to_goal.scale: 32.0
+      rotate_to_goal.slowing_factor: 5.0
+      rotate_to_goal.lookahead_time: -1.0
 
 local_costmap:
   local_costmap:

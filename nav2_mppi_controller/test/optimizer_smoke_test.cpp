@@ -94,20 +94,20 @@ INSTANTIATE_TEST_SUITE_P(
     std::make_tuple(
       "Omni",
       std::vector<std::string>(
-        {{"GoalCritic"}, {"GoalAngleCritic"}, {"ObstaclesCritic"}, {"PathAlignCritic"},
-          {"TwirlingCritic"}, {"PathFollowCritic"}, {"PreferForwardCritic"}}),
+        {{"goal_critic"}, {"goal_angle_critic"}, {"obstacles_critic"}, {"path_align_critic"},
+          {"twirling_critic"}, {"path_follow_critic"}, {"prefer_forward_critic"}}),
       true),
     std::make_tuple(
       "DiffDrive",
       std::vector<std::string>(
-        {{"GoalCritic"}, {"GoalAngleCritic"}, {"CostCritic"},
-          {"PathAngleCritic"}, {"PathFollowCritic"}, {"PreferForwardCritic"}}),
+        {{"goal_critic"}, {"goal_angle_critic"}, {"cost_critic"},
+          {"path_angle_critic"}, {"path_follow_critic"}, {"prefer_forward_critic"}}),
       true),
     std::make_tuple(
       "Ackermann",
       std::vector<std::string>(
-        {{"GoalCritic"}, {"GoalAngleCritic"}, {"ObstaclesCritic"},
-          {"PathAngleCritic"}, {"PathFollowCritic"}, {"PreferForwardCritic"}}),
+        {{"goal_critic"}, {"goal_angle_critic"}, {"obstacles_critic"},
+          {"path_angle_critic"}, {"path_follow_critic"}, {"prefer_forward_critic"}}),
       true))
 );
 
